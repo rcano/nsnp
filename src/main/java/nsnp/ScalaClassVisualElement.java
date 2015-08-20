@@ -2,8 +2,6 @@ package nsnp;
 
 import javafx.embed.swing.JFXPanel;
 import javax.swing.Action;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import org.netbeans.core.spi.multiview.CloseOperationState;
 import org.netbeans.core.spi.multiview.MultiViewElement;
@@ -12,7 +10,6 @@ import org.openide.awt.UndoRedo;
 import org.openide.util.Lookup;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
-import scala.Array;
 
 @MultiViewElement.Registration(
         displayName = "#LBL_ScalaClass_VISUAL",
@@ -58,7 +55,7 @@ public final class ScalaClassVisualElement implements MultiViewElement {
 
   @Override
   public Action[] getActions() {
-    return visualizer.getActions();
+    return (Action[]) (Object) visualizer.getActions();
   }
 
   @Override
