@@ -88,6 +88,7 @@ public final class ScalaClassVisualElement implements MultiViewElement {
     visualizer.componentActivated();
   }
 
+  @Override
   public CloseOperationState canCloseElement() {
     return visualizer.canCloseElement();
   }
