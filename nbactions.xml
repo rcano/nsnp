@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-run-ide</actionName>
+            <displayName>run-ide</displayName>
+            <goals>
+                <goal>nbm:cluster</goal>
+                <goal>nbm:run-ide</goal>
+            </goals>
+        </action>
+    </actions>
