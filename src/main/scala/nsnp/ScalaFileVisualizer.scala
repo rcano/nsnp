@@ -19,6 +19,7 @@ class ScalaFileVisualizer(lkp: Lookup) extends MultiViewElement {
   val astTextArea = new TextArea { editable = false }
   var multiViewCallback: MultiViewElementCallback = _
   Platform runLater {
+    Platform.implicitExit = false
     component setScene new Scene {
       root = new TabPane {
         this += new Tab {

@@ -1,19 +1,11 @@
 package nsnp;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.event.ChangeListener;
-import org.netbeans.api.java.project.JavaProjectConstants;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.SourceGroup;
 import org.netbeans.api.project.Sources;
 import org.netbeans.spi.project.ProjectServiceProvider;
 import org.netbeans.spi.project.SourceGroupModifierImplementation;
-import org.netbeans.spi.project.support.GenericSources;
-import org.openide.filesystems.FileObject;
-import org.openide.util.NbBundle;
-import scala.Array;
-import scala.Boolean;
 
 @ProjectServiceProvider(service = {Sources.class, SourceGroupModifierImplementation.class}, projectType = "org-netbeans-modules-maven")
 public class ScalaSourcesDecl implements Sources, SourceGroupModifierImplementation {

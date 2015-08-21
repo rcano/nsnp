@@ -12,19 +12,19 @@ class ScalaSourcesImpl(project: Project) extends Sources with SourceGroupModifie
   private var once = 0
   override def getSourceGroups(tpe: String): Array[SourceGroup] = {
     println(Console.BLUE + s"being queried about $tpe" + Console.RESET)
-    //    val res: Array[SourceGroup] = if (tpe == Sources.TYPE_GENERIC && once <= 3) {
-    //      println("processing once " + once)
-    once += 1
-    val srcScala = (project.getProjectDirectory.getFileObject("src/main/scala"), NAME_SCALASOURCE, "Scala Source Packages")
-    val testScala = (project.getProjectDirectory.getFileObject("src/test/scala"), NAME_SCALATESTSOURCE, "Scala Test Packages")
-    Array(srcScala, testScala).filter(t => t._1 != null).map(t =>
-      GenericSources.group(project, t._1, t._2, t._3, null, null))
-    //    } else {
-    //      println("elsing")
-    //      Array.empty
-    //    }
-    //    println(Console.RED + s"returning ${res.mkString(", ")}" + Console.RESET)
-    //    res
+    val res: Array[SourceGroup] = if (tpe == "java" && once <= 1) {
+      println("processing once " + once)
+      once += 1
+      val srcScala = (project.getProjectDirectory.getFileObject("src/main/scala"), NAME_SCALASOURCE, "Scala Source Packages")
+      val testScala = (project.getProjectDirectory.getFileObject("src/test/scala"), NAME_SCALATESTSOURCE, "Scala Test Packages")
+      Array(srcScala, testScala).filter(t => t._1 != null).map(t =>
+        GenericSources.group(project, t._1, t._2, t._3, null, null))
+    } else {
+      println("elsing")
+      Array.empty
+    }
+    println(Console.RED + s"returning ${res.mkString(", ")}" + Console.RESET)
+    res
   }
 
   override def addChangeListener(l: ChangeListener): Unit = {}
